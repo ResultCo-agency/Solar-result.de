@@ -239,6 +239,7 @@
         $('gateCompany').classList.remove('error');
         $('gateName').classList.remove('error');
         $('gateEmail').classList.remove('error');
+        $('gatePhone').classList.remove('error');
 
         // Validate
         var errors = [];
@@ -253,6 +254,10 @@
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             errors.push('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
             $('gateEmail').classList.add('error');
+        }
+        if (!phone) {
+            errors.push('Bitte geben Sie Ihre Telefonnummer ein.');
+            $('gatePhone').classList.add('error');
         }
 
         if (errors.length > 0) {
