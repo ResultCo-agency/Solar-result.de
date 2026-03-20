@@ -2416,3 +2416,93 @@ img { max-width: 100%; display: block; }
     .tab-btn { text-align: center; }
     .suburb-scene { width: 600px; height: 400px; }
 }
+
+/* ============================
+   TOP ANNOUNCEMENT BANNER
+   ============================ */
+.site-top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    height: 44px;
+    background: var(--dark-deeper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.site-top-banner a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0 40px 0 16px;
+}
+
+.site-top-banner strong {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.banner-cta-text {
+    color: var(--teal);
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.site-top-banner a:hover .banner-cta-text {
+    text-decoration: underline;
+}
+
+.banner-close {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.4);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.banner-close:hover {
+    color: rgba(255,255,255,0.8);
+}
+
+/* Push navbar down when banner is visible */
+body:has(.site-top-banner:not(.hidden)) .navbar {
+    top: 44px;
+}
+
+body:has(.site-top-banner:not(.hidden)) .mobile-menu {
+    top: 108px;
+}
+
+.site-top-banner.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+body:has(.site-top-banner.hidden) .navbar {
+    top: 0;
+}
+
+@media (max-width: 768px) {
+    .site-top-banner { height: 40px; }
+    .site-top-banner a { font-size: 0.72rem; gap: 5px; }
+    .site-top-banner a svg { display: none; }
+    body:has(.site-top-banner:not(.hidden)) .navbar { top: 40px; }
+    body:has(.site-top-banner:not(.hidden)) .mobile-menu { top: 104px; }
+}

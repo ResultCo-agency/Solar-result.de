@@ -4,6 +4,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ---- Top Banner close ----
+    const bannerClose = document.getElementById('bannerClose');
+    const topBanner = document.getElementById('siteTopBanner');
+    if (bannerClose && topBanner) {
+        bannerClose.addEventListener('click', () => {
+            topBanner.classList.add('hidden');
+        });
+    }
+
     // ---- Navbar scroll effect ----
     const navbar = document.getElementById('navbar');
     const handleScroll = () => {
