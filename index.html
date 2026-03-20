@@ -1134,190 +1134,140 @@
         </div>
     </section>
 
-    <!-- Booking Section with Cal.com -->
+    <!-- Booking Section - iClosed Style -->
     <section class="booking-section" id="cta">
-        <div class="booking-container">
-            <!-- Left: Offer + Info -->
-            <div class="booking-info">
-                <div class="section-label">Erstgespräch buchen</div>
-                <h2 class="booking-title">
-                    30 Minuten, die Ihren<br>
-                    <span class="highlight">Solarbetrieb verändern.</span>
-                </h2>
-                <p class="booking-text">
-                    Buchen Sie jetzt Ihr kostenloses Erstgespräch per Google Meet.
-                    Wir analysieren Ihr Potenzial und erstellen einen konkreten Fahrplan.
-                </p>
+        <div class="container">
+            <div class="section-label" style="text-align:center">Kostenloses Erstgespräch</div>
+            <h2 class="section-title" style="text-align:center">
+                Jetzt Termin sichern &mdash;<br>
+                <span class="highlight">kostenlose Website inklusive.</span>
+            </h2>
+        </div>
 
-                <!-- Free Website Offer Banner -->
-                <div class="booking-offer">
-                    <div class="offer-badge">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 1L12.39 6.26L18.18 7.27L14.09 11.74L14.78 17.61L10 15.27L5.22 17.61L5.91 11.74L1.82 7.27L7.61 6.26L10 1Z" fill="#EDBA40"/>
+        <div class="ibp-panel" id="ibp-panel">
+            <!-- Step Indicator (top bar) -->
+            <div class="ibp-topbar">
+                <div class="ibp-topbar-step active" id="ibp-dot-1">
+                    <span class="ibp-topbar-dot"></span> Daten eingeben
+                </div>
+                <div class="ibp-topbar-step" id="ibp-dot-2">
+                    <span class="ibp-topbar-dot"></span> Termin buchen
+                </div>
+            </div>
+
+            <!-- Main: Form LEFT + Calendar RIGHT (always visible side-by-side) -->
+            <div class="ibp-split" id="ibp-split">
+                <!-- LEFT: Form -->
+                <div class="ibp-form-side" id="ibp-form-side">
+                    <!-- Offer badge -->
+                    <div class="ibp-offer-tag">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 1L12.39 6.26L18.18 7.27L14.09 11.74L14.78 17.61L10 15.27L5.22 17.61L5.91 11.74L1.82 7.27L7.61 6.26L10 1Z" fill="#EDBA40"/></svg>
+                        Gratis Website im Wert von 2.500&euro; bei Terminbuchung
+                    </div>
+
+                    <form id="ibp-contact-form" autocomplete="on">
+                        <div class="ibp-form-group" id="ibp-fg-phone">
+                            <label for="ibp-phone">Telefonnummer *</label>
+                            <div class="ibp-phone-row">
+                                <span class="ibp-phone-prefix">+49</span>
+                                <input type="tel" id="ibp-phone" placeholder="123 456 789" autocomplete="tel">
+                            </div>
+                        </div>
+                        <div class="ibp-form-row">
+                            <div class="ibp-form-group" id="ibp-fg-name">
+                                <label for="ibp-name">Vorname *</label>
+                                <input type="text" id="ibp-name" placeholder="Max" required autocomplete="given-name">
+                                <span class="ibp-field-error">Pflichtfeld</span>
+                            </div>
+                            <div class="ibp-form-group" id="ibp-fg-lastname">
+                                <label for="ibp-lastname">Nachname *</label>
+                                <input type="text" id="ibp-lastname" placeholder="Mustermann" required autocomplete="family-name">
+                                <span class="ibp-field-error">Pflichtfeld</span>
+                            </div>
+                        </div>
+                        <div class="ibp-form-group" id="ibp-fg-email">
+                            <label for="ibp-email">E-Mail Adresse *</label>
+                            <input type="email" id="ibp-email" placeholder="max@solarbetrieb.de" required autocomplete="email">
+                            <span class="ibp-field-error">Bitte gültige E-Mail eingeben</span>
+                        </div>
+                        <div class="ibp-form-group" id="ibp-fg-company">
+                            <label for="ibp-company">Firmenname</label>
+                            <input type="text" id="ibp-company" placeholder="Ihr Solarbetrieb GmbH" autocomplete="organization">
+                        </div>
+
+                        <p class="ibp-consent">Mit der Eingabe Ihrer Daten stimmen Sie unserer <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zu.</p>
+
+                        <button type="submit" class="ibp-btn-continue" id="ibp-btn-continue">
+                            Weiter
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- RIGHT: Calendar + Slots (with overlay until form is done) -->
+                <div class="ibp-calendar-side">
+                    <!-- Overlay -->
+                    <div class="ibp-cal-overlay" id="ibp-cal-overlay">
+                        <div class="ibp-overlay-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Bitte füllen Sie zuerst das Formular aus.
+                        </div>
+                    </div>
+
+                    <!-- Calendar -->
+                    <div class="ibp-cal-header">
+                        <button class="ibp-cal-nav" id="ibp-cal-prev" disabled>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <span class="ibp-cal-month-title" id="ibp-cal-month-title"></span>
+                        <button class="ibp-cal-nav" id="ibp-cal-next">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </div>
+                    <div class="ibp-cal-weekdays">
+                        <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+                    </div>
+                    <div class="ibp-cal-grid" id="ibp-cal-grid"></div>
+
+                    <!-- Time Slots (appear below calendar after date selection) -->
+                    <div class="ibp-slots-area" id="ibp-slots-area">
+                        <div class="ibp-slots-container" id="ibp-slots-container"></div>
+                    </div>
+
+                    <!-- Book button -->
+                    <button type="button" class="ibp-btn-submit" id="ibp-btn-submit">
+                        Termin verbindlich buchen
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+
+                    <!-- Errors -->
+                    <div class="ibp-error" id="ibp-api-error"><span id="ibp-api-error-text"></span></div>
+                    <div class="ibp-error" id="ibp-booking-error"><span id="ibp-booking-error-text"></span></div>
+                </div>
+            </div>
+
+            <!-- Confirmation (replaces everything) -->
+            <div class="ibp-step" id="ibp-step-3">
+                <div class="ibp-confirm">
+                    <div class="ibp-confirm-icon">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="11" stroke="#65CBC9" stroke-width="2"/>
+                            <path d="M7 12.5l3 3 7-7" stroke="#65CBC9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Exklusives Angebot
                     </div>
-                    <h3 class="offer-title">Kostenlose Premium-Website</h3>
-                    <p class="offer-text">
-                        Jeder, der jetzt ein Erstgespräch bucht, erhält eine
-                        <strong>professionelle, conversion-optimierte Website</strong>
-                        für seinen Solarbetrieb &mdash; komplett kostenlos.
-                    </p>
-                    <div class="offer-value">
-                        <span class="offer-value-old">Wert: 2.500 &euro;</span>
-                        <span class="offer-value-new">Für Sie: 0 &euro;</span>
-                    </div>
-                </div>
-
-                <div class="booking-checklist">
-                    <div class="booking-check">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#65CBC9" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#65CBC9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        30 Min. Google Meet Gespräch
-                    </div>
-                    <div class="booking-check">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#65CBC9" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#65CBC9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Individuelle Markt- & Potenzialanalyse
-                    </div>
-                    <div class="booking-check">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#65CBC9" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#65CBC9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Konkreter Fahrplan für Ihr Wachstum
-                    </div>
-                    <div class="booking-check">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#65CBC9" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#65CBC9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        100% kostenlos & unverbindlich
-                    </div>
-                </div>
-                <p class="booking-micro">Begrenzte Plätze &mdash; Max. 3 neue Partner pro Monat.</p>
-            </div>
-
-            <!-- Right: Custom Booking Panel -->
-            <div class="booking-calendar">
-                <div class="ibp-panel">
-                    <!-- Step Indicator -->
-                    <div class="ibp-steps-indicator">
-                        <div class="ibp-step-label active" id="ibp-dot-1">
-                            <span class="ibp-step-num">1</span>
-                            <span class="ibp-step-name">Kontaktdaten</span>
-                        </div>
-                        <div class="ibp-line" id="ibp-line-1"></div>
-                        <div class="ibp-step-label" id="ibp-dot-2">
-                            <span class="ibp-step-num">2</span>
-                            <span class="ibp-step-name">Termin wählen</span>
-                        </div>
-                        <div class="ibp-line" id="ibp-line-2"></div>
-                        <div class="ibp-step-label" id="ibp-dot-3">
-                            <span class="ibp-step-num">3</span>
-                            <span class="ibp-step-name">Bestätigung</span>
-                        </div>
-                    </div>
-
-                    <!-- Step 1: Contact Form (FIRST) -->
-                    <div class="ibp-step active" id="ibp-step-1">
-                        <div class="ibp-form-header">
-                            <h3>Erzählen Sie uns von sich</h3>
-                            <p class="ibp-form-subtitle">Damit wir uns optimal auf das Gespräch vorbereiten können.</p>
-                        </div>
-                        <form id="ibp-contact-form" autocomplete="on">
-                            <div class="ibp-form-row">
-                                <div class="ibp-form-group" id="ibp-fg-name">
-                                    <label for="ibp-name">Ihr Name *</label>
-                                    <input type="text" id="ibp-name" placeholder="Max Mustermann" required autocomplete="name">
-                                    <span class="ibp-field-error">Bitte geben Sie Ihren Namen ein</span>
-                                </div>
-                                <div class="ibp-form-group" id="ibp-fg-email">
-                                    <label for="ibp-email">E-Mail Adresse *</label>
-                                    <input type="email" id="ibp-email" placeholder="max@beispiel.de" required autocomplete="email">
-                                    <span class="ibp-field-error">Bitte geben Sie eine gültige E-Mail ein</span>
-                                </div>
-                            </div>
-                            <div class="ibp-form-group" id="ibp-fg-phone">
-                                <label for="ibp-phone">Telefonnummer</label>
-                                <input type="tel" id="ibp-phone" placeholder="+49 123 456 789" autocomplete="tel">
-                            </div>
-                            <div class="ibp-form-group" id="ibp-fg-company">
-                                <label for="ibp-company">Firmenname (optional)</label>
-                                <input type="text" id="ibp-company" placeholder="Ihr Solarbetrieb GmbH" autocomplete="organization">
-                            </div>
-                            <div class="ibp-form-group" id="ibp-fg-notes">
-                                <label for="ibp-notes">Was ist Ihr aktuelles Ziel? (optional)</label>
-                                <textarea id="ibp-notes" rows="3" placeholder="z.B. Mehr Anfragen in meiner Region, Team aufbauen, Abschlussquote verbessern..."></textarea>
-                            </div>
-                            <button type="submit" class="ibp-btn-next-step">
-                                Weiter zur Terminauswahl
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Step 2: Calendar + Time Slots (side-by-side on desktop) -->
-                    <div class="ibp-step" id="ibp-step-2">
-                        <div class="ibp-form-header">
-                            <h3>Wählen Sie Ihren Termin</h3>
-                            <p class="ibp-form-subtitle">30 Minuten &bull; Google Meet &bull; Kostenlos</p>
-                        </div>
-                        <div class="ibp-cal-layout">
-                            <!-- Calendar Left -->
-                            <div class="ibp-cal-left">
-                                <div class="ibp-cal-header">
-                                    <button class="ibp-cal-nav" id="ibp-cal-prev" aria-label="Vorheriger Monat">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                                    </button>
-                                    <span class="ibp-cal-month-title" id="ibp-cal-month-title"></span>
-                                    <button class="ibp-cal-nav" id="ibp-cal-next" aria-label="Nächster Monat">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                                    </button>
-                                </div>
-                                <div class="ibp-cal-weekdays">
-                                    <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
-                                </div>
-                                <div class="ibp-cal-grid" id="ibp-cal-grid"></div>
-                            </div>
-                            <!-- Slots Right (appears on desktop as sidebar) -->
-                            <div class="ibp-cal-right" id="ibp-cal-right">
-                                <div class="ibp-slots-container" id="ibp-slots-container">
-                                    <div class="ibp-slots-placeholder">
-                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                                        <span>Wählen Sie einen Tag aus dem Kalender</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- API Error -->
-                        <div class="ibp-error" id="ibp-api-error">
-                            <span id="ibp-api-error-text"></span>
-                        </div>
-                        <!-- Booking Error -->
-                        <div class="ibp-error" id="ibp-booking-error">
-                            <span id="ibp-booking-error-text"></span>
-                        </div>
-                        <div class="ibp-step2-actions">
-                            <button type="button" class="ibp-btn-back" id="ibp-btn-back">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                                Zurück
-                            </button>
-                            <button type="button" class="ibp-btn-submit" id="ibp-btn-submit">
-                                Termin verbindlich buchen
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Step 3: Confirmation -->
-                    <div class="ibp-step" id="ibp-step-3">
-                        <div class="ibp-confirm">
-                            <div class="ibp-confirm-icon">
-                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-                                    <circle cx="12" cy="12" r="11" stroke="#65CBC9" stroke-width="2"/>
-                                    <path d="M7 12.5l3 3 7-7" stroke="#65CBC9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <h3 class="ibp-confirm-title">Termin gebucht!</h3>
-                            <p class="ibp-confirm-text">Sie erhalten in Kürze eine Bestätigung per E-Mail mit dem Google Meet Link.</p>
-                            <div class="ibp-confirm-details" id="ibp-confirm-details"></div>
-                        </div>
-                    </div>
+                    <h3 class="ibp-confirm-title">Termin gebucht!</h3>
+                    <p class="ibp-confirm-text">Sie erhalten in Kürze eine Bestätigung per E-Mail mit dem Google Meet Link.</p>
+                    <div class="ibp-confirm-details" id="ibp-confirm-details"></div>
                 </div>
             </div>
+        </div>
+
+        <!-- Hidden elements for JS compatibility -->
+        <div style="display:none">
+            <div id="ibp-line-1"></div>
+            <div id="ibp-line-2"></div>
+            <div id="ibp-step-1"></div>
+            <div id="ibp-step-2"></div>
         </div>
     </section>
 
