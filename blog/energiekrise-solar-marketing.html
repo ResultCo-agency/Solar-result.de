@@ -115,13 +115,32 @@
                 </div>
             </header>
 
-            <!-- Hero Image -->
+            <!-- Hero Image (full width) -->
             <div class="blog-post-hero-img">
                 <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80" alt="Solaranlage auf einem Einfamilienhaus bei Sonnenuntergang" loading="lazy">
             </div>
 
-            <!-- Body -->
-            <div class="blog-post-body">
+            <!-- Content + Sidebar Layout -->
+            <div class="blog-post-layout">
+
+                <!-- Social Share (sticky left) -->
+                <aside class="blog-share">
+                    <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','width=600,height=400')" aria-label="Auf Facebook teilen">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                    </button>
+                    <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=600,height=400')" aria-label="Auf X teilen">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </button>
+                    <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank','width=600,height=400')" aria-label="Auf LinkedIn teilen">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                    </button>
+                    <button class="share-btn" onclick="navigator.clipboard.writeText(location.href);this.classList.add('copied');setTimeout(()=>this.classList.remove('copied'),2000)" aria-label="Link kopieren">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                    </button>
+                </aside>
+
+                <!-- Article Body -->
+                <div class="blog-post-body">
 
                 <p>
                     Europa steckt in einer Energiekrise. Gaspreise auf Rekordniveau, Stromkosten die Haushalte
@@ -332,6 +351,84 @@
                 </div>
 
             </div>
+                <!-- Sidebar -->
+                <aside class="blog-post-sidebar">
+                    <!-- Featured -->
+                    <div class="post-sidebar-section">
+                        <div class="post-sidebar-title">
+                            <span class="blog-section-indicator"></span>
+                            <h3>Empfohlen</h3>
+                        </div>
+                        <a href="#" class="post-sidebar-item">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=200&q=80" alt="Facebook Ads" loading="lazy">
+                            <div>
+                                <span class="psi-meta">Leadgenerierung &bull; Demnächst</span>
+                                <span class="psi-title">Facebook Ads für Solarbetriebe: Der komplette Leitfaden 2025</span>
+                            </div>
+                        </a>
+                        <a href="#" class="post-sidebar-item">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=200&q=80" alt="KI Voice Agents" loading="lazy">
+                            <div>
+                                <span class="psi-meta">KI &bull; Demnächst</span>
+                                <span class="psi-title">Wie KI-Voice-Agents die Abschlussquote verdoppeln</span>
+                            </div>
+                        </a>
+                        <a href="#" class="post-sidebar-item">
+                            <img src="https://images.unsplash.com/photo-1611365892117-00ac6c3fce0d?w=200&q=80" alt="Fallstudie" loading="lazy">
+                            <div>
+                                <span class="psi-meta">Praxis &bull; Demnächst</span>
+                                <span class="psi-title">Von 5 auf 50 Anfragen: Eine Solarbetrieb-Fallstudie</span>
+                            </div>
+                        </a>
+                        <a href="#" class="post-sidebar-item">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&q=80" alt="Google vs Facebook" loading="lazy">
+                            <div>
+                                <span class="psi-meta">Strategie &bull; Demnächst</span>
+                                <span class="psi-title">Google Ads vs. Facebook Ads für Solar</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Blueprint Promo -->
+                    <div class="post-sidebar-promo">
+                        <span class="sidebar-promo-badge">Kostenlos</span>
+                        <h4>KI-Vertriebs-Blueprint</h4>
+                        <p>Das komplette System für planbare Solaraufträge.</p>
+                        <a href="../kostenfreies-ki-blueprint.html" class="sidebar-promo-btn">
+                            Jetzt sichern
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </aside>
+
+            </div> <!-- end blog-post-layout -->
+
+            <!-- Related Articles -->
+            <section class="blog-related">
+                <div class="blog-related-inner">
+                    <div class="blog-section-title-bar" style="margin-bottom:24px">
+                        <span class="blog-section-indicator"></span>
+                        <h2>Weitere Artikel</h2>
+                    </div>
+                    <div class="blog-related-grid">
+                        <a href="#" class="blog-related-card">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&q=80" alt="Social Media" loading="lazy">
+                            <span class="brc-meta">Leadgenerierung &bull; Demnächst</span>
+                            <h3>Facebook Ads für Solarbetriebe: Der komplette Leitfaden 2025</h3>
+                        </a>
+                        <a href="#" class="blog-related-card">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&q=80" alt="KI" loading="lazy">
+                            <span class="brc-meta">KI &amp; Automatisierung &bull; Demnächst</span>
+                            <h3>Wie KI-Voice-Agents die Abschlussquote von Solarbetrieben verdoppeln</h3>
+                        </a>
+                        <a href="#" class="blog-related-card">
+                            <img src="https://images.unsplash.com/photo-1611365892117-00ac6c3fce0d?w=400&q=80" alt="Installation" loading="lazy">
+                            <span class="brc-meta">Praxis &bull; Demnächst</span>
+                            <h3>Von 5 auf 50 Anfragen pro Monat: Eine Solarbetrieb-Fallstudie</h3>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </article>
 
         <!-- CTA -->
