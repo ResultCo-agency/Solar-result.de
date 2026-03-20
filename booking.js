@@ -20,7 +20,7 @@
 
     // Google Sheet Webhook URL (Google Apps Script Web App)
     // Replace with your deployed Apps Script URL
-    const SHEET_WEBHOOK = '';
+    const SHEET_WEBHOOK = 'https://script.google.com/a/macros/resultco.de/s/AKfycbyA7xIjqHiiXvtcMc8pE__rDrys-US37g5MXhSVVsxh6kxyX2Yh8b2PDyscGpGK3PVZ/exec';
 
     // ── STATE ──
     let currentMonth = new Date().getMonth();
