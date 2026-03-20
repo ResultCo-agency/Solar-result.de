@@ -179,13 +179,15 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     timestamp: new Date().toISOString(),
-                    name: data.name,
-                    lastname: data.lastname,
+                    name: data.firstname || data.name,
+                    lastname: data.lastname || '',
                     email: data.email,
                     phone: data.phone,
                     company: data.company,
                     source: 'solarresult.de',
-                    status: 'lead_captured'
+                    status: 'lead_captured',
+                    meeting_duration: '30 Minuten',
+                    meeting_type: 'Google Meet'
                 })
             });
         } catch (e) {
@@ -205,7 +207,9 @@
                     timestamp: new Date().toISOString(),
                     email: email,
                     appointment: slot,
-                    status: 'booked'
+                    status: 'booked',
+                    meeting_duration: '30 Minuten',
+                    meeting_type: 'Google Meet'
                 })
             });
         } catch (e) {
