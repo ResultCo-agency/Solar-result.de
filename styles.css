@@ -670,6 +670,16 @@ img { max-width: 100%; display: block; }
 .hero-ctas .btn-ghost { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); }
 .hero-ctas .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
 
+.hero-ctas .btn-blueprint {
+    border-color: rgba(237, 186, 64, 0.4);
+    color: var(--gold);
+}
+.hero-ctas .btn-blueprint:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(237, 186, 64, 0.1);
+}
+
 /* Trust */
 .hero-trust { display: flex; align-items: center; gap: 14px; }
 .trust-avatars { display: flex; }
