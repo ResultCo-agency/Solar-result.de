@@ -173,22 +173,27 @@
             return;
         }
         try {
+            const payload = {
+                timestamp: new Date().toISOString(),
+                name: data.firstname || data.name,
+                lastname: data.lastname || '',
+                email: data.email,
+                phone: data.phone,
+                company: data.company,
+                source: 'solarresult.de',
+                status: 'lead_captured',
+                meeting_duration: '30 Minuten',
+                meeting_type: 'Google Meet'
+            };
+            // Google Apps Script redirects POST to GET after execution
+            // Use no-cors with text/plain to avoid CORS preflight
             await fetch(SHEET_WEBHOOK, {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    timestamp: new Date().toISOString(),
-                    name: data.firstname || data.name,
-                    lastname: data.lastname || '',
-                    email: data.email,
-                    phone: data.phone,
-                    company: data.company,
-                    source: 'solarresult.de',
-                    status: 'lead_captured',
-                    meeting_duration: '30 Minuten',
-                    meeting_type: 'Google Meet'
-                })
+                body: JSON.stringify(payload)
+            }).catch(() => {
+                // Fallback: send as URL params via GET (works with CORS redirect)
+                const params = new URLSearchParams(payload).toString();
+                return fetch(SHEET_WEBHOOK + '?' + params, { mode: 'no-cors' });
             });
         } catch (e) {
             console.warn('Could not save lead to sheet:', e);
@@ -199,18 +204,20 @@
     async function updateLeadStatus(email, slot) {
         if (!SHEET_WEBHOOK) return;
         try {
+            const payload = {
+                timestamp: new Date().toISOString(),
+                email: email,
+                appointment: slot,
+                status: 'booked',
+                meeting_duration: '30 Minuten',
+                meeting_type: 'Google Meet'
+            };
             await fetch(SHEET_WEBHOOK, {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    timestamp: new Date().toISOString(),
-                    email: email,
-                    appointment: slot,
-                    status: 'booked',
-                    meeting_duration: '30 Minuten',
-                    meeting_type: 'Google Meet'
-                })
+                body: JSON.stringify(payload)
+            }).catch(() => {
+                const params = new URLSearchParams(payload).toString();
+                return fetch(SHEET_WEBHOOK + '?' + params, { mode: 'no-cors' });
             });
         } catch (e) {
             console.warn('Could not update lead status:', e);

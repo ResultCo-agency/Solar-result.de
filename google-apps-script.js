@@ -68,6 +68,41 @@ function updateLeadStatus(sheet, email, appointment, duration, type) {
 }
 
 function doGet(e) {
+  // Also handle GET requests with URL params (fallback for CORS)
+  if (e && e.parameter && e.parameter.email) {
+    try {
+      var ss = SpreadsheetApp.openById(SHEET_ID);
+      var sheet = ss.getSheetByName('Leads') || ss.getActiveSheet();
+      var data = e.parameter;
+
+      if (data.status === 'booked') {
+        updateLeadStatus(sheet, data.email, data.appointment, data.meeting_duration, data.meeting_type);
+      } else {
+        sheet.appendRow([
+          data.timestamp || new Date().toISOString(),
+          data.name || '',
+          data.lastname || '',
+          data.email || '',
+          data.phone || '',
+          data.company || '',
+          data.source || 'solarresult.de',
+          'Neuer Lead',
+          '',
+          data.meeting_duration || '30 Minuten',
+          data.meeting_type || 'Google Meet'
+        ]);
+      }
+
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: 'ok' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    } catch (error) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: 'error', message: error.toString() }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+  }
+
   return ContentService
     .createTextOutput(JSON.stringify({ status: 'ok', message: 'SolarResult Lead Webhook is active' }))
     .setMimeType(ContentService.MimeType.JSON);
