@@ -1335,19 +1335,45 @@ img { max-width: 100%; display: block; }
     pointer-events: none;
 }
 
-/* Offer tag */
-.ibp-offer-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(237, 186, 64, 0.1);
-    border: 1px solid rgba(237, 186, 64, 0.25);
-    color: #b8910f;
-    padding: 8px 14px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    font-weight: 700;
+/* Meeting Info */
+.ibp-meeting-info {
     margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.ibp-meeting-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+
+.ibp-meeting-desc {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.ibp-meeting-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ibp-meeting-detail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.ibp-meeting-detail svg {
+    flex-shrink: 0;
+    color: var(--teal);
 }
 
 /* Phone row with prefix */
