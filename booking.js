@@ -274,6 +274,11 @@
             // Store contact data
             contactData = { name, email, phone, company, notes };
 
+            // Track Lead event (Pixel + CAPI)
+            if (window.SRTracking) {
+                SRTracking.trackLead({ name, email, phone });
+            }
+
             // Go to step 2 (calendar)
             goToStep(2);
         });
@@ -397,6 +402,14 @@
 
     // ── CONFIRMATION ──
     function showConfirmation() {
+        // Track Schedule event (Pixel + CAPI)
+        if (window.SRTracking) {
+            SRTracking.trackSchedule(
+                { name: contactData.name, email: contactData.email, phone: contactData.phone },
+                { date: selectedSlot.start }
+            );
+        }
+
         document.getElementById('ibp-confirm-details').innerHTML = `
             <div class="ibp-confirm-row">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
