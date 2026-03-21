@@ -2500,9 +2500,7 @@ body:has(.site-top-banner.hidden) .navbar {
 }
 
 @media (max-width: 768px) {
-    .site-top-banner { height: 40px; }
-    .site-top-banner a { font-size: 0.72rem; gap: 5px; }
-    .site-top-banner a svg { display: none; }
-    body:has(.site-top-banner:not(.hidden)) .navbar { top: 40px; }
-    body:has(.site-top-banner:not(.hidden)) .mobile-menu { top: 104px; }
+    .site-top-banner { display: none; }
+    body:has(.site-top-banner:not(.hidden)) .navbar { top: 0; }
+    body:has(.site-top-banner:not(.hidden)) .mobile-menu { top: 64px; }
 }
